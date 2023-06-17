@@ -21,8 +21,9 @@ def extract_frame(video_path, start_time, end_time,count,div=2,dialogue=['']):
             x=int(frame.shape[1]*0.1)
             y=int(frame.shape[0]*0.85)
             # cv2.putText(frame,dialogue[i-1],(frame.shape[0]/4,frame.shape[1]/2),cv2.FONT_HERSHEY_DUPLEX,2,(255,255,255),2)
-            cv2.putText(frame, dialogue[i-1], (x, y), cv2.FONT_HERSHEY_DUPLEX, 1, (255,255,255), 2)
+            cv2.putText(frame, str(count), (10,20), cv2.FONT_HERSHEY_DUPLEX, 1, (255,255,255), 1)
             cv2.putText(frame, dialogue[i-1], (x, y), cv2.FONT_HERSHEY_DUPLEX, 1, (0,0,0), 3)
+            cv2.putText(frame, dialogue[i-1], (x, y), cv2.FONT_HERSHEY_DUPLEX, 1, (255,255,255), 2)
             cv2.imwrite(os.path.join('frames',f'frame{count}.jpg'), frame)
             # print(frame_number,'::',count)
             count+=1
