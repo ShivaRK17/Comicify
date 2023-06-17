@@ -7,6 +7,6 @@ def genSubfromYoutube(link):
     formatter = SRTFormatter()
     srt_format = formatter.format_transcript(srt)
 
-    with open('friendssub.srt', 'w', encoding='utf-8') as srt_file:
+    with open('videosub.srt', 'w', encoding='utf-8') as srt_file:
         srt_file.write(srt_format)
 
