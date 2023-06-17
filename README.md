@@ -9,6 +9,7 @@ Install the following using pip install command
  - natsort
  - img2pdf
  - pytube
- - youtube-transcript-api
+ - youtube-transcript-api\
+
 Run main.py file after replacing the youtube_link with your youtube link 
 Output is generated as pdf and is stored as output.pdf
