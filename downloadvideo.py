@@ -1,4 +1,5 @@
 from pytube import YouTube
+import os
 
 def Download(link):
     youtubeObject = YouTube(link)
@@ -8,3 +9,10 @@ def Download(link):
     except:
         print("An error has occurred")
     print("Download is completed successfully")
+def DownloadAudio(link):
+    youtubeObject = YouTube(link)
+    audio = youtubeObject.streams.filter(only_audio=True).first()
+    out_file = audio.download(output_path='')
+    base, ext = os.path.splitext(out_file)
+    new_file = 'videoaudio.mp3'
+    os.rename(out_file, new_file)

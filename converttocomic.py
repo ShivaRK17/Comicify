@@ -4,9 +4,14 @@ import srtsplit
 import downloadvideo
 import youtubesrt
 import helpers
+import generatesubtitle
 
 def convertVideoToComic(youtube_link):
-    youtubesrt.genSubfromYoutube(youtube_link) #generates subtitle
+    res = youtubesrt.genSubfromYoutube(youtube_link) #generates subtitle
+    if(res==0):
+        downloadvideo.DownloadAudio(youtube_link)
+        generatesubtitle.transcribe_audio('videoaudio.mp3')
+
     downloadvideo.Download(youtube_link) #downloads youtube video
 
     subfile = 'videosub.srt'
@@ -32,7 +37,8 @@ def convertVideoToComic(youtube_link):
         extractframes.extract_frame(video_file,startstr,endstr,count)
     video.release()
     helpers.converttopdf('frames') #convert all images to pdf
-    helpers.deletefiles('frames')
+    # helpers.deletefiles('frames')
     os.remove('videoclip.mp4')
     os.remove('videosub.srt')
+    os.remove('videoaudio.mp3')
 
