@@ -13,7 +13,6 @@ def genSubfromYoutube(link):
             srt_file.write(srt_format)
         return 1
     except:
-        os.remove('videosub.srt')
         return 0
 
 genSubfromYoutube("https://www.youtube.com/watch?v=wUqyhyxamus")

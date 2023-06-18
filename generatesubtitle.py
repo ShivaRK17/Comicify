@@ -6,10 +6,10 @@ import os
 
 def transcribe_audio(path):
     model = whisper.load_model("base") # Change this to your desired model
-    print("Whisper model loaded.")
+    # print("Whisper model loaded.")
     transcribe = model.transcribe(audio=path,fp16=False)
     segments = transcribe['segments']
-    print('Transcribe done')
+    # print('Transcribe done')
     for segment in segments:
         startTime = str(0)+str(timedelta(seconds=int(segment['start'])))+',000'
         endTime = str(0)+str(timedelta(seconds=int(segment['end'])))+',000'
